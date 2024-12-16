@@ -3,7 +3,6 @@
 
 namespace app\controllers;
 
-//use yii\BaseYii;
 use Yii;
 use app\models\Post;
 
@@ -20,12 +19,6 @@ class PostController extends AppController
 
     public function actionIndex()
     {
-        //  if( Yii::$app->request->isAjax ){
-        //     // dd($_POST);die;
-        //     // debug($_GET);
-        //     return 'test';
-        // }
-
         $post = Post::find()->all();
         
         return $this->render('index', ['post' => $post]);
@@ -50,8 +43,7 @@ class PostController extends AppController
 
                 if ($postid > 0) {
                     $model = Post::find()->where(['id' => $postid])->one();
-
-                    //dd($model);die;
+                    
                     $lat = $model->latitude;
                     $long = $model->longitude;
 
@@ -66,8 +58,7 @@ class PostController extends AppController
                         }
                     }
 
-                    $count = count($sub);
-                    // dd($count);die;
+                    $count = count($sub);                   
                 }
                 else{
                     Yii::$app->session->setFlash('error', 'выбирите метку!');
