@@ -12,9 +12,7 @@ class MyController extends AppController
         $hi = 'hello, world!';
         $names = ['salyam', 'is', 'the best'];
 
-        if(!$id) $id = 'test';
-
-       // return $this->render('index', ['hello' => $hi, 'names' => $names]);
+        if(!$id) $id = 'test';       
         return $this->render('index', compact('hi', 'names', 'id'));
     }
 
